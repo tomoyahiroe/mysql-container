@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+    mysql:
+        image: mysql:8.0.26
+        platform: linux/amd64
+        container_name: mysql-container
+        hostname: my-mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: laravel
+            MYSQL_USER: user
+            MYSQL_PASSWORD: pass
+        command:
+            mysqld --default-authentication-plugin=mysql_native_password
+        volumes:
+            - ./docker/mysql/data:/var/lib/mysql
+            - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+            - ./sql/:/docker-entrypoint-initdb.d/
+        ports:
+          - 127.0.0.1:3306:3306
+        tty: true
