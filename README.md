@@ -24,7 +24,7 @@ mysql -h 127.0.0.1 -u root -p
 
 パスワードは、`password`です。
 
-4. 起動時に作成される database は MY_DB です。
+4. 起動時に作成される database 名は laravel です。
 
 ## Laravel User
 
